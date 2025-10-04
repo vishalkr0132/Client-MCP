@@ -49,5 +49,4 @@ except ImportError as e:
 
 # For local debugging only
 if __name__ == "__main__":
-    print("Running MCP server locally on http://127.0.0.1:8000")
-    server.run(transport="sse", host="127.0.0.1", port=8000)
+    server.run(transport="sse", host="0.0.0.0", port=8000)
