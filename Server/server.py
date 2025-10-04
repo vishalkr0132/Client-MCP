@@ -14,10 +14,7 @@ from Client.config import APP_KEY, API_SECRET
 load_dotenv()
 
 # Main MCP server instance (required for FastMCP Cloud)
-server = FastMCP(
-    name="New AliceBlue Portfolio Agent",
-    dependencies=["python-dotenv", "requests"]
-)
+mcp = FastMCP("New AliceBlue Portfolio Agent")
 
 _alice_client = None
 
@@ -49,4 +46,4 @@ except ImportError as e:
 
 # For local debugging only
 if __name__ == "__main__":
-    server.run(transport="sse", host="0.0.0.0", port=8000)
+    mcp.run(transport="sse", host="0.0.0.0", port=8000)
