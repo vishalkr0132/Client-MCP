@@ -3,17 +3,29 @@ import sys
 from fastmcp import FastMCP
 from dotenv import load_dotenv
 
-# Setup project paths
+# Add the project root to Python path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
-sys.path.insert(0, project_root)
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
-from Client.client import AliceBlue
-from Client.config import APP_KEY, API_SECRET
+try:
+    from Client.client import AliceBlue
+    from Client.config import APP_KEY, API_SECRET
+except ImportError as e:
+    print(f"Import error: {e}")
+    # Fallback - try relative import
+    try:
+        from ..Client.client import AliceBlue
+        from ..Client.config import APP_KEY, API_SECRET
+    except ImportError:
+        print("Failed to import Client modules")
+        # Set defaults or raise error
+        APP_KEY = os.getenv("APP_KEY")
+        API_SECRET = os.getenv("API_SECRET")
 
 load_dotenv()
 
-# Main MCP server instance (required for FastMCP Cloud)
 mcp = FastMCP("New AliceBlue Portfolio Agent")
 
 _alice_client = None
