@@ -1,0 +1,6 @@
+{
+  "entrypoint": "Server/server.py",
+  "environment": {
+    "dependencies": ["python-dotenv", "requests"]
+  }
+}
