@@ -6,7 +6,7 @@ def is_port_available(port: int) -> bool:
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.settimeout(1)
-            s.bind(('localhost', port))
+            s.bind(('0.0.0.0', port))
             return True
     except OSError:
         return False
@@ -15,7 +15,7 @@ def force_close_port(port: int):
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.settimeout(1)
-            result = s.connect_ex(('localhost', port))
+            result = s.connect_ex(('0.0.0.0', port))
             if result == 0:
                 s.shutdown(socket.SHUT_RDWR)
     except:

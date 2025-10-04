@@ -5,8 +5,8 @@ BASE_URL = "https://a3.aliceblueonline.com"
 LOGIN_URL = "https://ant.aliceblueonline.com/?appcode="
 
 # Use environment variable for redirect in cloud, fallback to localhost for local dev
-REDIRECT_URL = os.getenv("REDIRECT_URL", "http://localhost:8080")
-REDIRECT_PORT = 8080 if "localhost" in REDIRECT_URL else 80
+# REDIRECT_URL = os.getenv("REDIRECT_URL", "http://localhost:8080")
+REDIRECT_PORT = 8080 
 LOGIN_TIMEOUT = 60
 
 APP_KEY = os.getenv("APP_KEY", "OzbVrZLlNu")
