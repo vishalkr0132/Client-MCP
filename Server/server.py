@@ -47,3 +47,6 @@ except ImportError as e:
 # For local debugging only
 if __name__ == "__main__":
     mcp.run(transport="sse", host="0.0.0.0", port=8000)
+
+# ADD THIS LINE - CRITICAL FOR FASTMCP CLOUD
+server = mcp  # Alias for FastMCP Cloud inspection
