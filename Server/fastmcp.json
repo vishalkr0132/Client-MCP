@@ -1,1 +1,1 @@
-{ "entrypoint": "Server/server.py", "environment": { "dependencies": ["python-dotenv", "requests"] } }
+{ "entrypoint": "Server/server.py:mcp", "environment": { "dependencies": ["python-dotenv", "requests"] } }
